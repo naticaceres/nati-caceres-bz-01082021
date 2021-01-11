@@ -1,6 +1,7 @@
 @import "../../../../sass/base/typography";
 @import "../../../../sass/abstracts/variables";
 @import "../../../../sass/base/utilities";
+@import "../../../../sass/base/animations";
 
 .find-policy {
   &__intro {
@@ -8,10 +9,23 @@
   }
 }
 
+.fab-logo {
+  animation: fadeInBottom 0.2s linear 0.5s;
+  animation-fill-mode: backwards;
+}
+
+.heading-primary {
+  animation: fadeInBottom 0.2s linear 0.6s;
+  animation-fill-mode: backwards;
+}
+
 .numbered-list {
   display: inline-block;
   text-align: left;
   list-style: none;
+
+  animation: fadeInBottom 0.2s linear 0.7s;
+  animation-fill-mode: backwards;
 
   &__step {
     font-size: 1.8rem;
@@ -28,4 +42,14 @@
       line-height: 2.19rem;
     }
   }
+}
+
+.btn--cta {
+  animation: fadeInBottom 0.2s linear 0.8s;
+  animation-fill-mode: backwards;
+}
+
+.powered-by {
+  animation: fadeIn 0.2s linear 0.8s;
+  animation-fill-mode: backwards;
 }

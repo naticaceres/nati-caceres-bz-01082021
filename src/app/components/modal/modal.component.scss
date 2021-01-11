@@ -1,5 +1,6 @@
 @import "../../../sass/abstracts/variables";
 @import "../../../sass/abstracts/mixins";
+@import "../../../sass/base/animations";
 
 .modal {
   height: 100vh;
@@ -10,10 +11,12 @@
   overflow: hidden;
   background-color: rgba($color: $color-black, $alpha: 0.65);
   z-index: 5000;
-  transition: all 0.3s;
+  transition: all 0.5s;
 
   opacity: 1;
   visibility: visible;
+
+  animation: fadeIn 0.3s;
 
   &__close {
     &:link,
@@ -47,7 +50,10 @@
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
     border-radius: 0.8rem;
     transform: translate(-50%, -50%);
+
     transition: all 0.4s 0.2s;
+    animation-fill-mode: backwards;
+    animation: growCenter 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
   }
 
   &__heading {
