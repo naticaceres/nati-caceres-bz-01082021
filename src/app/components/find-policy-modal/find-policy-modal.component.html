@@ -2,7 +2,10 @@
   <app-modal>
     <app-intro *ngIf="isIntro" (introAccepted)="this.isIntro = false"></app-intro>
 
-    <app-find-policy-form *ngIf="!isIntro"></app-find-policy-form>
+    <app-find-policy-form *ngIf="!isIntro && !isResults"
+      (formComplete)="this.insuranceRequest=$event; this.isResults= true;"></app-find-policy-form>
+
+    <app-results *ngIf="isResults" [insuranceRequestValue]="insuranceRequest"></app-results>
 
   </app-modal>
 </div>

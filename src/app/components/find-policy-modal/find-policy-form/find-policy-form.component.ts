@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ButtonToggleOption } from "../button-toggle/button-toggle-option.model";
+import { InsuranceRequest } from "../model/insurance-request.model";
 import { US_STATE_LIST } from "./us-state-list.enum";
 
 @Component({
@@ -9,6 +10,8 @@ import { US_STATE_LIST } from "./us-state-list.enum";
   styleUrls: ["./find-policy-form.component.scss"],
 })
 export class FindPolicyFormComponent implements OnInit {
+  @Output() formComplete = new EventEmitter<InsuranceRequest>();
+
   currentStepNumber = 1;
 
   usStateList = US_STATE_LIST;
@@ -85,6 +88,9 @@ export class FindPolicyFormComponent implements OnInit {
   ngOnInit(): void {}
 
   goToNextStep() {
+    if (this.currentStepNumber >= 7) {
+      return;
+    }
     this.currentStepNumber += 1;
   }
 
@@ -101,15 +107,19 @@ export class FindPolicyFormComponent implements OnInit {
 
   selectedOwnershipOption(ownershipOption: ButtonToggleOption) {
     this.insuranceSearchForm.controls.designOwnership.setValue(
-      ownershipOption.title
+      ownershipOption.title.toLowerCase() === "yes"
     );
     this.goToNextStep();
   }
 
   selectedIncludeBusinessCoverage(includeBuildingCoverage: ButtonToggleOption) {
     this.insuranceSearchForm.controls.includeBuildingCoverage.setValue(
-      includeBuildingCoverage.title
+      includeBuildingCoverage.title.toLowerCase() === "yes"
     );
     this.goToNextStep();
+  }
+
+  getQuotes() {
+    this.formComplete.emit(this.insuranceSearchForm.value);
   }
 }

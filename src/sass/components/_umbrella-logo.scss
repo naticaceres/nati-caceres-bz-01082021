@@ -1,18 +1,19 @@
 @import "../abstracts/variables";
 
-.umbrella-logo {
+.fab-logo {
   border-radius: 50%;
   width: 10rem;
   height: 10rem;
   position: relative;
-  display: inline-block;
+  display: block;
+  margin: auto;
 
   &--blue {
     background-color: $color-secondary;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
   }
 
-  .umbrella-img {
+  .fab-img {
     width: 5.5rem;
     height: 6rem;
   }

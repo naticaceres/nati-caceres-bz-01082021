@@ -1,0 +1,50 @@
+@import "../../../../sass/base/utilities";
+
+.results {
+  padding: 1em;
+
+  &__heading {
+    > * {
+      margin: auto;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    margin: auto;
+    overflow-y: auto;
+    height: 72vh;
+  }
+
+  &__copy {
+    font-weight: 400;
+    font-size: 2.2rem;
+    line-height: 2.57rem;
+    max-width: 50rem;
+  }
+
+  &__quotes {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__summary {
+    max-width: 51.6rem;
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+
+    &__content {
+      margin-bottom: 1rem;
+      font-weight: 500;
+      line-height: 1.9rem;
+    }
+  }
+
+  &__summary-title {
+    margin-bottom: 2.3rem;
+  }
+}

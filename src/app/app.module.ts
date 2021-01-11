@@ -12,6 +12,10 @@ import { StepperComponent } from "./components/find-policy-modal/stepper/stepper
 import { ButtonToggleComponent } from "./components/find-policy-modal/button-toggle/button-toggle.component";
 import { FindPolicyFormComponent } from "./components/find-policy-modal/find-policy-form/find-policy-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ResultsComponent } from "./components/find-policy-modal/results/results.component";
+import { QuoteComponent } from "./components/find-policy-modal/results/quote/quote.component";
+import { StarRatingComponent } from "./components/find-policy-modal/results/star-rating/star-rating.component";
+import { DatePipe } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -24,9 +28,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     StepperComponent,
     ButtonToggleComponent,
     FindPolicyFormComponent,
+    ResultsComponent,
+    QuoteComponent,
+    StarRatingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

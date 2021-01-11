@@ -1,0 +1,25 @@
+<div class="quote-list">
+  <div class="quote" *ngFor="let quote of quoteList">
+
+    <div class="quote__heading">
+      <div class="quote__logo">
+        <img [src]="'../../../../../assets/img/' + quote.logoSource" [alt]="quote.name" class="quote__logo-img">
+      </div>
+      <div class="quote__rating" [style.background-image]="getRatingPercentage(quote.rating)">
+        &#9733; &#9733; &#9733; &#9733; &#9733;
+      </div>
+    </div>
+
+    <div class="quote__prices">
+      <p class="quote__prices--big"> ${{quote.priceMonth}}<span class="quote__prices--big--suffix">/mo</span> </p>
+
+      <p class="quote__prices--small"> ${{quote.priceYear}} per year </p>
+    </div>
+
+    <button class="btn btn--cta btn--green">
+      buy now
+    </button>
+
+  </div>
+
+</div>

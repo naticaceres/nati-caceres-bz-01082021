@@ -1,0 +1,36 @@
+<div class="results">
+  <h4 class="heading-quaternary">
+    <img alt="Umbrella logo" class="umbrella-img umbrella-small-icon">
+    Umbrella Hub
+  </h4>
+
+  <div class="results__content">
+    <div class="results__heading">
+      <div class="fab-logo fab-logo--blue u-margin-top-medium">
+        <img src="../../../../assets/img/wind.svg" alt="Wind logo" class="fab-img u-complete-center ">
+      </div>
+
+      <h1 class="heading-primary u-margin-top-medium">
+        Fast like the wind!
+      </h1>
+
+      <p class="results__copy normal-text u-margin-top-small">
+        We dove deep through the internet to get you these great quotes
+      </p>
+    </div>
+
+    <div class="results__quotes">
+      <app-quote [quoteList]="quoteResults"></app-quote>
+    </div>
+
+    <div class="results__summary">
+      <h3 class="heading-tertiary results__summary-title">Your Summary:</h3>
+      <p class="results__summary__content"> {{paragraph1}} </p>
+      <p class="results__summary__content"> {{paragraph2}} </p>
+      <p class="results__summary__content"> {{paragraph3}} </p>
+      <p class="results__summary__content"> {{paragraph4}} </p>
+    </div>
+  </div>
+
+
+</div>
