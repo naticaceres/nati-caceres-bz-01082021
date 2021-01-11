@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "umbrella-hub": {
+    "nati-caceres-bz-01082021": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/umbrella-hub",
+            "outputPath": "dist/nati-caceres-bz-01082021",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "umbrella-hub:build"
+            "browserTarget": "nati-caceres-bz-01082021:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "umbrella-hub:build:production"
+              "browserTarget": "nati-caceres-bz-01082021:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "umbrella-hub:build"
+            "browserTarget": "nati-caceres-bz-01082021:build"
           }
         },
         "test": {
@@ -102,18 +102,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "umbrella-hub:serve"
+            "devServerTarget": "nati-caceres-bz-01082021:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "umbrella-hub:serve:production"
+              "devServerTarget": "nati-caceres-bz-01082021:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "umbrella-hub",
+  "defaultProject": "nati-caceres-bz-01082021",
   "cli": {
     "analytics": "6e689cef-52d7-4360-af97-80fe295e00e0"
   }
