@@ -1,8 +1,8 @@
 <div class="find-policy">
   <app-modal>
-    <!-- <app-intro header></app-intro> -->
+    <app-intro *ngIf="isIntro" (introAccepted)="this.isIntro = false"></app-intro>
 
-    <app-find-policy-form></app-find-policy-form>
+    <app-find-policy-form *ngIf="!isIntro"></app-find-policy-form>
 
   </app-modal>
 </div>

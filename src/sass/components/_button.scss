@@ -15,7 +15,7 @@
 
     text-decoration: none;
   }
-  &:hover &:not(:disabled) {
+  &:hover:not(:disabled) {
     transform: translateY(-0.2rem);
     box-shadow: 0 0.8rem 0.8rem rgba($color-black, 0.2);
   }
