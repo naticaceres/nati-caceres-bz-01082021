@@ -1,0 +1,16 @@
+@import "../abstracts/variables";
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  // color: $color-gray-dark;
+}
+
+.heading-primary {
+  font-weight: 700;
+  font-size: 4.4rem;
+  line-height: 5.156rem;
+  color: $color-typeface;
+}

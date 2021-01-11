@@ -1,0 +1,44 @@
+@import "../abstracts/variables";
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    width: 31.2rem;
+    height: 5rem;
+
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+
+    border: none;
+    cursor: pointer;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.109rem;
+  }
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.8rem 0.8rem rgba($color-black, 0.2);
+  }
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(0.1rem);
+    box-shadow: 0 0.4rem 0.4rem rgba($color-black, 0.2);
+  }
+
+  &--blue {
+    background-color: $color-secondary;
+  }
+
+  &--green {
+    background-color: $color-success;
+  }
+}

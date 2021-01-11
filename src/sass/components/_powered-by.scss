@@ -1,0 +1,17 @@
+@import "../abstracts/variables";
+
+.powered-by {
+  color: $color-gray-light-4;
+  font-weight: 400;
+  font-size: 1.155rem;
+  line-height: 1.353rem;
+  display: block;
+  cursor: initial;
+
+  &__icon {
+    width: 1.283rem;
+    height: 1.411rem;
+    vertical-align: middle;
+    margin-right: 0.206rem;
+  }
+}
