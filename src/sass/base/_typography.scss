@@ -1,7 +1,7 @@
 @import "../abstracts/variables";
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
   font-weight: 400;
   font-size: $default-font-size;
   line-height: 1.7;
@@ -13,4 +13,11 @@ body {
   font-size: 4.4rem;
   line-height: 5.156rem;
   color: $color-typeface;
+}
+
+.heading-quaternary {
+  color: $color-primary;
+  font-weight: 400;
+  font-size: 1.674rem;
+  line-height: 1.962rem;
 }

@@ -1,0 +1,89 @@
+@import "../../../../sass/abstracts/variables";
+
+.find-policy-form {
+  padding: 2.5rem;
+
+  &__get-quotes-btn {
+    display: block;
+  }
+}
+
+.stepper {
+  //overflow-y: scroll;
+  overflow: hidden;
+  height: 63rem;
+  position: relative;
+
+  &__step {
+    max-width: 56.2rem;
+    margin: auto;
+    opacity: 0;
+    display: none;
+
+    &.active-step {
+      display: block;
+      opacity: 1;
+    }
+
+    &.next-step {
+      display: block;
+      opacity: 0.2;
+    }
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    max-width: 54.309rem;
+    text-align: left;
+
+    &__number {
+      flex-shrink: 0;
+    }
+
+    &__text {
+      font-weight: 700;
+      font-size: 3.279rem;
+      line-height: 3.843rem;
+      color: $color-typeface;
+    }
+  }
+
+  &__button-next {
+    margin-top: 3rem;
+  }
+
+  &__step-controller {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    border-radius: 0 0 0.8rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+
+    z-index: 10;
+
+    background-color: $color-primary;
+    color: $color-white;
+
+    &__step-count {
+      vertical-align: middle;
+    }
+  }
+
+  &__btn-step {
+    &:not(:last-child) {
+      margin-right: 0.84rem;
+    }
+    &:disabled {
+      background-color: rgba($color: $color-white, $alpha: 0.8);
+    }
+  }
+}

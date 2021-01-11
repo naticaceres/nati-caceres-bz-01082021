@@ -1,0 +1,31 @@
+@import "../../../../sass/base/typography";
+@import "../../../../sass/abstracts/variables";
+@import "../../../../sass/base/utilities";
+
+.find-policy {
+  &__intro {
+    text-align: center;
+  }
+}
+
+.numbered-list {
+  display: inline-block;
+  text-align: left;
+  list-style: none;
+
+  &__step {
+    font-size: 1.8rem;
+    max-width: 51rem;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 2.9rem;
+    }
+
+    &__content {
+      font-weight: 400;
+      line-height: 2.19rem;
+    }
+  }
+}

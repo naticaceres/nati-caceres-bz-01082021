@@ -1,0 +1,31 @@
+@import "../abstracts/variables";
+
+.umbrella-logo {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+  display: inline-block;
+
+  &--blue {
+    background-color: $color-secondary;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
+  }
+
+  .umbrella-img {
+    width: 5.5rem;
+    height: 6rem;
+  }
+}
+
+.umbrella-img {
+  display: inline-block;
+  content: url("../assets/img/umbrella.svg");
+}
+
+.umbrella-small-icon {
+  width: 3rem;
+  height: 3rem;
+  vertical-align: middle;
+  margin-right: 1rem;
+}

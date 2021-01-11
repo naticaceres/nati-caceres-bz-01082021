@@ -1,0 +1,15 @@
+.round-number {
+  width: 3.6rem;
+  height: 3.6rem;
+  background-color: $color-secondary;
+  color: $color-primary;
+  border-radius: 50%;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.109rem;
+  display: inline-block;
+  text-align: center;
+  padding-top: 0.8rem;
+  margin-right: 2.1rem;
+}

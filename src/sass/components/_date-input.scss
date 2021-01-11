@@ -1,0 +1,29 @@
+.date-input {
+  color: $color-primary;
+  font-family: inherit;
+  font-size: 2rem;
+  line-height: 2.344rem;
+  font-weight: 400;
+  text-align: left;
+
+  border: none;
+  background-color: transparent;
+  border-bottom: 0.1rem solid $color-gray-light-4;
+
+  width: 100%;
+
+  transition: all 0.2s;
+
+  &:focus {
+    outline: none;
+    border-bottom: 0.2rem solid $color-primary;
+
+    &:invalid {
+      border-bottom: 0.2rem solid $color-error;
+    }
+  }
+
+  &::-webkit-input-placeholder {
+    color: $color-gray-dark-2;
+  }
+}

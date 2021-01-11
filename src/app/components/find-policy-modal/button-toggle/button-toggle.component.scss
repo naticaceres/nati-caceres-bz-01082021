@@ -1,0 +1,77 @@
+@import "../../../../sass/abstracts/variables";
+
+$flex-gutter-half: 1.25rem;
+
+.button-toggle {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(26.945rem, 1fr));
+  // grid-auto-rows: 7.6rem;
+  // grid-gap: 2.355rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: -($flex-gutter-half * 2);
+
+  &__option {
+    &,
+    &:link,
+    &:visited {
+      width: 26.945rem;
+      height: 7.6rem;
+      margin: $flex-gutter-half;
+      padding: 1.5rem;
+      border: 0.086rem solid $color-gray-light-4;
+      border-radius: 0.345rem;
+      cursor: pointer;
+      text-decoration: none;
+      background-color: $color-pure-white;
+      box-shadow: 0px 0.345455rem 0.345455rem rgba(0, 0, 0, 0.1);
+
+      display: flex;
+      align-items: center;
+      backface-visibility: hidden;
+
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.7rem 0.7rem rgba($color-black, 0.2);
+      background-color: $color-secondary-lightest;
+    }
+    &:active,
+    &:focus,
+    &.selected {
+      outline: none;
+      transform: translateY(0rem);
+      box-shadow: 0px 0.345455rem 0.345455rem rgba(0, 0, 0, 0.1);
+      background-color: $color-secondary-lighter;
+      border: 0.155rem solid $color-primary;
+    }
+  }
+
+  &__option-icon {
+    margin-right: 1rem;
+  }
+
+  &__text {
+    text-align: left;
+    color: $color-typeface;
+  }
+
+  &__option-title {
+    display: block;
+    font-weight: 500;
+    font-size: 1.471rem;
+    line-height: 1.724rem;
+    color: $color-typeface;
+  }
+
+  &__option-detail {
+    font-weight: 400;
+    font-size: 1.036rem;
+    line-height: 1.214rem;
+  }
+}

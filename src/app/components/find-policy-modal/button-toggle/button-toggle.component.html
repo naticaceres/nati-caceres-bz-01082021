@@ -1,0 +1,11 @@
+<div class="button-toggle">
+  <button *ngFor="let option of toggleOptions" class="button-toggle__option"
+    [class.selected]="selectedOptionTitle === option.title" (click)="selectedOption.emit(option)">
+    <img [src]="'../../../../assets/img/' + option.icon" [alt]="option.iconAlt" class="button-toggle__option-icon">
+    <div class="button-toggle__text">
+      <span class="button-toggle__option-title"> {{option.title}} </span>
+      <span class="button-toggle__option-detail"> {{option.detail}} </span>
+    </div>
+
+  </button>
+</div>

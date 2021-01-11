@@ -4,27 +4,19 @@
   &,
   &:link,
   &:visited {
-    width: 31.2rem;
-    height: 5rem;
-
-    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 0.8rem;
+
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
     transition: all 0.2s;
+    backface-visibility: hidden;
 
     border: none;
     cursor: pointer;
 
     text-decoration: none;
-    text-transform: uppercase;
-    font-family: Roboto;
-    font-weight: 700;
-    font-size: 1.8rem;
-    line-height: 2.109rem;
   }
-  &:hover {
-    transform: translateY(-0.3rem);
+  &:hover &:not(:disabled) {
+    transform: translateY(-0.2rem);
     box-shadow: 0 0.8rem 0.8rem rgba($color-black, 0.2);
   }
   &:active,
@@ -32,6 +24,23 @@
     outline: none;
     transform: translateY(0.1rem);
     box-shadow: 0 0.4rem 0.4rem rgba($color-black, 0.2);
+  }
+  &:disabled {
+    cursor: auto;
+    box-shadow: 0 0.1rem 0.1rem rgba($color-black, 0.2);
+  }
+
+  &--cta {
+    border-radius: 0.8rem;
+    width: 31.2rem;
+    height: 5rem;
+
+    padding: 1.5rem 4rem;
+
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.109rem;
   }
 
   &--blue {
@@ -41,4 +50,37 @@
   &--green {
     background-color: $color-success;
   }
+
+  &--step-ok {
+    width: 9.3rem;
+    height: 5rem;
+    border-radius: 0.8rem;
+    padding: 0.5rem 1rem 0.4rem;
+
+    text-transform: uppercase;
+    background-color: $color-secondary;
+    color: $color-primary;
+
+    font-weight: 500;
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 2.109rem;
+
+    .check-icon {
+      margin-left: 0.2rem;
+      vertical-align: sub;
+      margin-bottom: -0.2rem;
+    }
+  }
+
+  &--chevron {
+    width: 3.658rem;
+    height: 3.658rem;
+  }
+}
+
+.chevron-down {
+  transform: rotate(180deg);
+  width: 2.4rem;
+  height: 2.4rem;
 }

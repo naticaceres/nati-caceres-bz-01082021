@@ -1,0 +1,20 @@
+.select-input {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: $color-primary;
+  width: 100%;
+  max-width: 100%;
+
+  border: none;
+  border-bottom: 0.1rem solid $color-gray-light-4;
+  background-color: transparent;
+
+  transition: all 0.2s;
+
+  &:focus {
+    outline: none;
+    border: none;
+    border-bottom: 0.2rem solid $color-primary;
+  }
+}
