@@ -58,8 +58,6 @@
   }
 
   &__step-controller {
-    @include clearfix;
-
     position: absolute;
     bottom: 0;
     left: 0;
