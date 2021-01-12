@@ -35,7 +35,7 @@
     border-radius: 0.8rem;
     width: 100%;
     max-width: 31.2rem;
-    height: 5rem;
+    min-height: 5rem;
 
     padding: 1.5rem 4rem;
 
@@ -55,7 +55,7 @@
 
   &--step-ok {
     width: 9.3rem;
-    height: 5rem;
+    min-height: 5rem;
     border-radius: 0.8rem;
     padding: 0.5rem 1rem 0.4rem;
 
@@ -90,4 +90,8 @@
   transform: rotate(180deg);
   width: 2.4rem;
   height: 2.4rem;
+}
+
+a {
+  cursor: pointer;
 }

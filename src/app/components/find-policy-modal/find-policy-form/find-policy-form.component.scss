@@ -1,4 +1,5 @@
 @import "../../../../sass/abstracts/variables";
+@import "../../../../sass/abstracts/mixins";
 
 .find-policy-form {
   padding: 2.5rem;
@@ -9,9 +10,9 @@
 }
 
 .stepper {
-  //overflow-y: scroll;
-  overflow: hidden;
-  height: 63rem;
+  overflow-y: auto;
+  height: 61vh;
+  margin-bottom: 3rem;
   position: relative;
 
   &__step {
@@ -57,6 +58,8 @@
   }
 
   &__step-controller {
+    @include clearfix;
+
     position: absolute;
     bottom: 0;
     left: 0;
