@@ -1,6 +1,6 @@
 # UmbrellaHub
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+Running solution in : https://nati-caceres-bz-01082021.herokuapp.com/home
 
 ## Development server
 
