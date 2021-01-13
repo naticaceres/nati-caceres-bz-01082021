@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-intro",
@@ -8,7 +9,14 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 export class IntroComponent implements OnInit {
   @Output() introAccepted = new EventEmitter<boolean>();
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  acceptIntro() {
+    this.router.navigate([
+      "",
+      { outlets: { modal: ["modal", "find-policy-form", "1"] } },
+    ]);
+  }
 }

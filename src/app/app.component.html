@@ -1,2 +1,5 @@
 <router-outlet></router-outlet>
-<router-outlet name="modal"></router-outlet>
+
+<div [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']">
+  <router-outlet name="modal" #o="outlet"></router-outlet>
+</div>

@@ -1,0 +1,22 @@
+<!-- <div>
+  {{currentStep}}
+  {{stepNumber}}
+</div> -->
+<div class="step" [class.visible]="+currentStep === +stepNumber" [class.next]="+currentStep +1 === +stepNumber">
+  <div class="step__question">
+    <div class="step__question__number round-number">
+      {{stepNumber}}
+    </div>
+    <span class="step__question__text">
+      {{question}}
+    </span>
+  </div>
+  <div class="step__input">
+    <ng-content></ng-content>
+  </div>
+
+  <button [class.show]="currentStep === stepNumber && isShowOkButton" class="btn btn--step-ok step__btn-next "
+    (click)="okClicked.emit()" [disabled]="isOkButtonDisabled">
+    Ok <img src="../../../../assets/img/check.svg" alt="Check icon" class="check-icon">
+  </button>
+</div>

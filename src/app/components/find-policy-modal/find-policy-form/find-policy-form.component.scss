@@ -1,8 +1,10 @@
 @import "../../../../sass/abstracts/variables";
 @import "../../../../sass/abstracts/mixins";
+@import "../../../../sass/base/animations";
 
 .find-policy-form {
   padding: 2.5rem;
+  position: relative;
 
   &__get-quotes-btn {
     display: block;
@@ -10,52 +12,12 @@
 }
 
 .stepper {
-  overflow-y: auto;
-  height: 61vh;
+  //overflow-y: auto;
+  overflow: hidden;
+  height: 68.8vh;
   margin-bottom: 3rem;
   position: relative;
-
-  &__step {
-    max-width: 56.2rem;
-    margin: auto;
-    opacity: 0;
-    display: none;
-
-    &.active-step {
-      display: block;
-      opacity: 1;
-    }
-
-    &.next-step {
-      display: block;
-      opacity: 0.2;
-    }
-  }
-
-  &__question {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    margin-top: 8rem;
-    margin-bottom: 5rem;
-    max-width: 54.309rem;
-    text-align: left;
-
-    &__number {
-      flex-shrink: 0;
-    }
-
-    &__text {
-      font-weight: 700;
-      font-size: 3.279rem;
-      line-height: 3.843rem;
-      color: $color-typeface;
-    }
-  }
-
-  &__button-next {
-    margin-top: 3rem;
-  }
+  margin: auto;
 
   &__step-controller {
     position: absolute;
@@ -87,4 +49,13 @@
       background-color: rgba($color: $color-white, $alpha: 0.8);
     }
   }
+
+  &__step {
+  }
 }
+
+// ::ng-deep {
+//   .step__question {
+//     margin-top: 6rem !important;
+//   }
+// }

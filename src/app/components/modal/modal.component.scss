@@ -42,10 +42,10 @@
   &__content {
     @include absoluteCenter;
     //padding: 2.5rem 2.4rem;
+    overflow: hidden;
     width: 75%;
     max-width: 69rem;
-    min-height: 20rem;
-    max-height: 80vh;
+    height: 77vh;
     background-color: $color-white;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
     border-radius: 0.8rem;

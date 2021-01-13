@@ -1,7 +1,10 @@
+import { Location } from "@angular/common";
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ButtonToggleOption } from "../button-toggle/button-toggle-option.model";
 import { InsuranceRequest } from "../model/insurance-request.model";
+import { StateService } from "../services/state.service";
 import { US_STATE_LIST } from "./us-state-list.enum";
 
 @Component({
@@ -83,19 +86,29 @@ export class FindPolicyFormComponent implements OnInit {
     businessStartDate: ["", Validators.required],
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private stateService: StateService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let urlStepNumber = +this.activatedRoute.snapshot.params.step;
+    this.currentStepNumber =
+      urlStepNumber > 7 || urlStepNumber < 1 ? 1 : urlStepNumber;
+  }
 
   goToNextStep() {
     if (this.currentStepNumber >= 7) {
       return;
     }
-    this.currentStepNumber += 1;
+
+    this.currentStepNumber = +this.currentStepNumber + 1;
   }
 
   goToPreviousStep() {
-    this.currentStepNumber -= 1;
+    this.currentStepNumber = +this.currentStepNumber - 1;
   }
 
   setInsuranceType(insuranceType: ButtonToggleOption) {
@@ -120,6 +133,7 @@ export class FindPolicyFormComponent implements OnInit {
   }
 
   getQuotes() {
-    this.formComplete.emit(this.insuranceSearchForm.value);
+    this.stateService.setInsuranceRequest(this.insuranceSearchForm.value);
+    this.router.navigate(["", { outlets: { modal: ["modal", "results"] } }]);
   }
 }

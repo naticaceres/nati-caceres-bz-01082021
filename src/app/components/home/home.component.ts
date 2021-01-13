@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   openFindInsurance() {
-    this.router.navigate([{ outlets: { modal: ["find-policy"] } }]);
+    this.router.navigate([
+      { outlets: { modal: ["modal", "find-policy-intro"] } },
+    ]);
   }
 }

@@ -8,143 +8,62 @@
   <form [formGroup]="insuranceSearchForm">
     <div class="stepper">
 
-      <div class="stepper__step stepper__step-1" [class.active-step]="currentStepNumber === 1"
-        [class.next-step]="currentStepNumber + 1 === 1">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            1
-          </div>
-          <span class="stepper__question__text">
-            What type of insurance are you looking for?
-          </span>
-        </div>
-        <div class="stepper__input">
-          <app-button-toggle [toggleOptions]="insuranceTypeOptions" (selectedOption)="setInsuranceType($event)"
-            [selectedOptionTitle]="insuranceSearchForm.controls.insuranceType.value">
-          </app-button-toggle>
-        </div>
-      </div>
-      <div class=" stepper__step stepper__step-2" [class.active-step]="currentStepNumber === 2"
-        [class.next-step]="currentStepNumber + 1 === 2">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            2
-          </div>
-          <span class="stepper__question__text">
-            What’s the name of your business?
-          </span>
-        </div>
-        <div class="stepper__input">
-          <input type="text" class="text-input" placeholder="Name of your business" required
-            [formControl]="insuranceSearchForm.controls.businessName">
-        </div>
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="1"
+        [question]="'What type of insurance are you looking for?'" [isShowOkButton]="false">
+        <app-button-toggle [toggleOptions]="insuranceTypeOptions" (selectedOption)="setInsuranceType($event)"
+          [selectedOptionTitle]="insuranceSearchForm.controls.insuranceType.value">
+        </app-button-toggle>
+      </app-step>
 
-        <ng-container
-          *ngTemplateOutlet="currentStepNumber === 2 ? okNextStep : '' ; context: {formControl: this.insuranceSearchForm.controls.businessName}">
-        </ng-container>
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="2"
+        [question]="'What\’s the name of your business?'"
+        [isOkButtonDisabled]="!insuranceSearchForm.controls.businessName.valid" (okClicked)="goToNextStep()">
+        <input type="text" class="text-input" placeholder="Name of your business" required
+          [formControl]="insuranceSearchForm.controls.businessName">
+      </app-step>
 
-      </div>
-      <div class=" stepper__step stepper__step-3" [class.active-step]="currentStepNumber === 3"
-        [class.next-step]="currentStepNumber + 1 === 3">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            3
-          </div>
-          <span class="stepper__question__text">
-            What’s the phone number?
-          </span>
-        </div>
-        <div class="stepper__input">
-          <input type="tel" class="text-input" placeholder="Phone Number" required
-            [formControl]="insuranceSearchForm.controls.phoneNumber">
-        </div>
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="3"
+        [question]="'What\’s the phone number?'" [isOkButtonDisabled]="!insuranceSearchForm.controls.phoneNumber.valid"
+        (okClicked)="goToNextStep()">
+        <input type="tel" class="text-input" placeholder="Phone Number" required
+          [formControl]="insuranceSearchForm.controls.phoneNumber">
+      </app-step>
 
-        <ng-container
-          *ngTemplateOutlet="currentStepNumber === 3 ? okNextStep : '' ; context: {formControl: this.insuranceSearchForm.controls.phoneNumber}">
-        </ng-container>
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="4"
+        [question]="'What state do you operate from?'" [isOkButtonDisabled]="!insuranceSearchForm.controls.state.valid"
+        (okClicked)="goToNextStep()">
+        <select name="states" id="states" class="stepper__select select-input" required
+          [formControl]="insuranceSearchForm.controls.state">
+          <option value=""></option>
+          <option *ngFor="let state of usStateList" [value]="state.name"> {{state.name}} </option>
+        </select>
+      </app-step>
 
-      </div>
-      <div class=" stepper__step stepper__step-4" [class.active-step]="currentStepNumber === 4"
-        [class.next-step]="currentStepNumber + 1 === 4">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            4
-          </div>
-          <span class="stepper__question__text">
-            What state do you operate from?
-          </span>
-        </div>
-        <div class="stepper__input">
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="5"
+        [question]="'Do you do your own design?'" [isShowOkButton]="false">
+        <app-button-toggle [toggleOptions]="designOwnershipOptions" (selectedOption)="selectedOwnershipOption($event)"
+          [selectedOptionTitle]="insuranceSearchForm.controls.designOwnership.value">
+        </app-button-toggle>
+      </app-step>
 
-          <select name="states" id="states" class="stepper__select select-input" required
-            [formControl]="insuranceSearchForm.controls.state">
-            <option value=""></option>
-            <option *ngFor="let state of usStateList" [value]="state.name"> {{state.name}} </option>
-          </select>
-        </div>
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="6"
+        [question]="'Include building coverage?'" [isShowOkButton]="false">
+        <app-button-toggle [toggleOptions]="coverageOptions" (selectedOption)="selectedIncludeBusinessCoverage($event)"
+          [selectedOptionTitle]="insuranceSearchForm.controls.includeBuildingCoverage.value"></app-button-toggle>
+      </app-step>
 
-        <ng-container
-          *ngTemplateOutlet="currentStepNumber === 4 ? okNextStep : '' ; context: {formControl: this.insuranceSearchForm.controls.state}">
-        </ng-container>
+      <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="7"
+        [question]="'When did your business begin?'"
+        [isOkButtonDisabled]="!insuranceSearchForm.controls.businessStartDate.valid">
+        <input type="date" class="date-input" placeholder="mm/dd/yyy" required
+          [formControl]="insuranceSearchForm.controls.businessStartDate">
+      </app-step>
 
-      </div>
-      <div class=" stepper__step stepper__step-5" [class.active-step]="currentStepNumber === 5"
-        [class.next-step]="currentStepNumber + 1 === 5">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            5
-          </div>
-          <span class="stepper__question__text">
-            Do you do your own design?
-          </span>
-        </div>
-        <div class="stepper__input">
-          <app-button-toggle [toggleOptions]="designOwnershipOptions" (selectedOption)="selectedOwnershipOption($event)"
-            [selectedOptionTitle]="insuranceSearchForm.controls.designOwnership.value">
-          </app-button-toggle>
-        </div>
-      </div>
-      <div class=" stepper__step stepper__step-6" [class.active-step]="currentStepNumber === 6"
-        [class.next-step]="currentStepNumber + 1 === 6">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            6
-          </div>
-          <span class="stepper__question__text">
-            Include building coverage?
-          </span>
-        </div>
-        <div class="stepper__input">
-          <app-button-toggle [toggleOptions]="coverageOptions"
-            (selectedOption)="selectedIncludeBusinessCoverage($event)"
-            [selectedOptionTitle]="insuranceSearchForm.controls.includeBuildingCoverage.value"></app-button-toggle>
-        </div>
-      </div>
-      <div class=" stepper__step stepper__step-7" [class.active-step]="currentStepNumber === 7"
-        [class.next-step]="currentStepNumber + 1 === 7">
-        <div class="stepper__question">
-          <div class="stepper__question__number round-number">
-            7
-          </div>
-          <span class="stepper__question__text">
-            When did your business begin?
-          </span>
-        </div>
-        <div class="stepper__input">
-          <input type="date" class="date-input" placeholder="mm/dd/yyy" required
-            [formControl]="insuranceSearchForm.controls.businessStartDate">
-        </div>
+      <button *ngIf="currentStepNumber === 7"
+        class="btn btn--cta btn--green u-margin-top-big u-margin-bottom-large find-policy-form__get-quotes-btn"
+        [disabled]="!insuranceSearchForm.valid" (click)="getQuotes()">Get
+        Quotes</button>
 
-
-        <ng-container
-          *ngTemplateOutlet="currentStepNumber === 7 ? okNextStep : '' ; context: {formControl: this.insuranceSearchForm.controls.businessStartDate}">
-        </ng-container>
-
-
-        <button class="btn btn--cta btn--green u-margin-top-big u-margin-bottom-large find-policy-form__get-quotes-btn"
-          [disabled]="!insuranceSearchForm.valid" (click)="getQuotes()">Get
-          Quotes</button>
-      </div>
     </div>
 
   </form>
@@ -166,9 +85,3 @@
 
 
 </div>
-
-<ng-template #okNextStep let-formControl="formControl">
-  <button class="btn btn--step-ok stepper__button-next " (click)="goToNextStep()" [disabled]="!formControl.valid">
-    Ok <img src="../../../../assets/img/check.svg" alt="Check icon" class="check-icon">
-  </button>
-</ng-template>

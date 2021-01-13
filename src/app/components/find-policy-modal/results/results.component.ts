@@ -1,12 +1,7 @@
 import { DatePipe } from "@angular/common";
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from "@angular/core";
+import { Component } from "@angular/core";
 import { InsuranceRequest } from "../model/insurance-request.model";
+import { StateService } from "../services/state.service";
 import { Quote } from "./quote/quote.model";
 
 @Component({
@@ -14,8 +9,8 @@ import { Quote } from "./quote/quote.model";
   templateUrl: "./results.component.html",
   styleUrls: ["./results.component.scss"],
 })
-export class ResultsComponent implements OnChanges {
-  @Input() insuranceRequestValue: InsuranceRequest;
+export class ResultsComponent {
+  insuranceRequestValue: InsuranceRequest;
   paragraph1 = "";
   paragraph2 = "";
   paragraph3 = "";
@@ -45,12 +40,11 @@ export class ResultsComponent implements OnChanges {
     },
   ];
 
-  constructor(private datePipe: DatePipe) {}
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!changes.insuranceRequestValue.currentValue?.businessName) {
-      return;
-    }
-    let searchData = changes.insuranceRequestValue.currentValue;
+  constructor(private datePipe: DatePipe, stateService: StateService) {
+    this.insuranceRequestValue = stateService.getInsuranceRequest();
+    this.buildSummary(this.insuranceRequestValue);
+  }
+  buildSummary(searchData: InsuranceRequest): void {
     this.paragraph1 = `${
       searchData.businessName
     }, established on ${this.datePipe.transform(

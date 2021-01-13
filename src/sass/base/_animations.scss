@@ -1,3 +1,26 @@
+@keyframes scrollDownOut {
+  0% {
+    opacity: 1;
+    height: auto;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    margin: 0 !important;
+  }
+}
+
+@keyframes scrollDownIn {
+  0% {
+    opacity: 2;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

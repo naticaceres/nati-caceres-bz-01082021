@@ -15,7 +15,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ResultsComponent } from "./components/find-policy-modal/results/results.component";
 import { QuoteComponent } from "./components/find-policy-modal/results/quote/quote.component";
 import { StarRatingComponent } from "./components/find-policy-modal/results/star-rating/star-rating.component";
-import { DatePipe } from "@angular/common";
+import { DatePipe, Location } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { StepComponent } from './components/find-policy-modal/step/step.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,16 @@ import { DatePipe } from "@angular/common";
     ResultsComponent,
     QuoteComponent,
     StarRatingComponent,
+    StepComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [DatePipe],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  providers: [DatePipe, Location],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

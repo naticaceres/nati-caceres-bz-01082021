@@ -1,0 +1,57 @@
+@import "../../../../sass/abstracts/variables";
+
+.step {
+  transition: all 0.4s ease-out;
+  width: 100%;
+  max-width: 56.2rem;
+  margin: auto;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+
+  &__question {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 5rem;
+    padding-top: 7rem;
+    max-width: 54.309rem;
+    text-align: left;
+
+    &__number {
+      flex-shrink: 0;
+    }
+
+    &__text {
+      font-weight: 700;
+      font-size: 3.279rem;
+      line-height: 3.843rem;
+      color: $color-typeface;
+    }
+  }
+
+  &__btn-next {
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.2s;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 3rem;
+    }
+  }
+
+  &.visible {
+    max-height: 40rem;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.next {
+    max-height: 40rem;
+    opacity: 0.2;
+    visibility: visible;
+  }
+}
