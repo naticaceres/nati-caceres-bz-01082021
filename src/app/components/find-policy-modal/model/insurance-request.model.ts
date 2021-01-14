@@ -3,7 +3,7 @@ export interface InsuranceRequest {
   businessName: string;
   phoneNumber: string;
   state: string;
-  designOwnership: boolean;
-  includeBuildingCoverage: boolean;
+  designOwnership: string;
+  includeBuildingCoverage: string;
   businessStartDate: string;
 }

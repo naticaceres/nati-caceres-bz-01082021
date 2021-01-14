@@ -83,6 +83,13 @@
   &--chevron {
     width: 3.658rem;
     height: 3.658rem;
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(0.1rem);
+      box-shadow: none !important;
+    }
   }
 }
 

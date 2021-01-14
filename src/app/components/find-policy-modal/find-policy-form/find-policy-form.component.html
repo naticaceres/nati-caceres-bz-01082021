@@ -18,21 +18,21 @@
       <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="2"
         [question]="'What\’s the name of your business?'"
         [isOkButtonDisabled]="!insuranceSearchForm.controls.businessName.valid" (okClicked)="goToNextStep()">
-        <input type="text" class="text-input" placeholder="Name of your business" required
+        <input #autofocus type="text" class="text-input" placeholder="Name of your business" required
           [formControl]="insuranceSearchForm.controls.businessName">
       </app-step>
 
       <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="3"
         [question]="'What\’s the phone number?'" [isOkButtonDisabled]="!insuranceSearchForm.controls.phoneNumber.valid"
         (okClicked)="goToNextStep()">
-        <input type="tel" class="text-input" placeholder="Phone Number" required
+        <input #autofocus type="tel" class="text-input" placeholder="Phone Number" required
           [formControl]="insuranceSearchForm.controls.phoneNumber">
       </app-step>
 
       <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="4"
         [question]="'What state do you operate from?'" [isOkButtonDisabled]="!insuranceSearchForm.controls.state.valid"
         (okClicked)="goToNextStep()">
-        <select name="states" id="states" class="stepper__select select-input" required
+        <select #autofocus name="states" id="states" class="stepper__select select-input" required
           [formControl]="insuranceSearchForm.controls.state">
           <option value=""></option>
           <option *ngFor="let state of usStateList" [value]="state.name"> {{state.name}} </option>
@@ -49,13 +49,14 @@
       <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="6"
         [question]="'Include building coverage?'" [isShowOkButton]="false">
         <app-button-toggle [toggleOptions]="coverageOptions" (selectedOption)="selectedIncludeBusinessCoverage($event)"
-          [selectedOptionTitle]="insuranceSearchForm.controls.includeBuildingCoverage.value"></app-button-toggle>
+          [selectedOptionTitle]="insuranceSearchForm.controls.includeBuildingCoverage.value">
+        </app-button-toggle>
       </app-step>
 
       <app-step [currentStep]="currentStepNumber" class="stepper__step" [stepNumber]="7"
         [question]="'When did your business begin?'"
         [isOkButtonDisabled]="!insuranceSearchForm.controls.businessStartDate.valid">
-        <input type="date" class="date-input" placeholder="mm/dd/yyy" required
+        <input #autofocus type="date" class="date-input" placeholder="mm/dd/yyy" required
           [formControl]="insuranceSearchForm.controls.businessStartDate">
       </app-step>
 

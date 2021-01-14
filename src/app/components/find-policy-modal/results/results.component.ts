@@ -55,13 +55,17 @@ export class ResultsComponent {
     } insurance.`;
 
     this.paragraph2 = `${searchData.businessName} would ${
-      searchData.includeBuildingCoverage ? "also" : "not"
+      searchData.includeBuildingCoverage.toLowerCase() === "yes"
+        ? "also"
+        : "not"
     } like building coverage included in their policy. `;
 
     this.paragraph3 = `${searchData.businessName} ${
-      searchData.designOwnership ? "does" : "doesn't do"
+      searchData.designOwnership.toLowerCase() === "yes" ? "does" : "doesn't do"
     } their own designs in-house${
-      searchData.designOwnership ? "" : " and would need design assistance"
+      searchData.designOwnership.toLowerCase() === "yes"
+        ? ""
+        : " and would need design assistance"
     }.`;
 
     this.paragraph4 = `${searchData.businessName} can be reached at ${searchData.phoneNumber}.`;

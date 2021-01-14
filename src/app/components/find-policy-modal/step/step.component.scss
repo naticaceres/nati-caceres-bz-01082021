@@ -1,7 +1,7 @@
 @import "../../../../sass/abstracts/variables";
 
 .step {
-  transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out 0.2s;
   width: 100%;
   max-width: 56.2rem;
   margin: auto;
@@ -34,7 +34,7 @@
     opacity: 0;
     visibility: hidden;
 
-    transition: all 0.2s;
+    transition: all 0.2s ease-in-out 0.3s;
 
     &.show {
       opacity: 1;

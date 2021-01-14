@@ -1,11 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from "@angular/core";
 
 @Component({
   selector: "app-step",
   templateUrl: "./step.component.html",
   styleUrls: ["./step.component.scss"],
 })
-export class StepComponent implements OnInit {
+export class StepComponent implements OnInit, AfterContentInit {
   @Input() stepNumber: number;
   @Input() question: string;
   @Input() isShowOkButton: boolean = true;
@@ -14,7 +23,19 @@ export class StepComponent implements OnInit {
 
   @Output() okClicked = new EventEmitter();
 
-  constructor() {}
+  @ContentChild("autofocus") input: ElementRef;
 
-  ngOnInit(): void {}
+  constructor() {}
+  ngAfterContentInit(): void {
+    // this.input.nativeElement.
+    // if (!!this.input) {
+    //   let check = this.input;
+    // }
+  }
+
+  ngOnInit(): void {
+    // if (!!this.input) {
+    //   let check = this.input;
+    // }
+  }
 }

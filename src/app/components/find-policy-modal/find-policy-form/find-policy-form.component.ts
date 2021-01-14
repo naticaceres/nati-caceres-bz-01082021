@@ -1,5 +1,13 @@
 import { Location } from "@angular/common";
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewChildren,
+} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ButtonToggleOption } from "../button-toggle/button-toggle-option.model";
@@ -120,14 +128,14 @@ export class FindPolicyFormComponent implements OnInit {
 
   selectedOwnershipOption(ownershipOption: ButtonToggleOption) {
     this.insuranceSearchForm.controls.designOwnership.setValue(
-      ownershipOption.title.toLowerCase() === "yes"
+      ownershipOption.title
     );
     this.goToNextStep();
   }
 
   selectedIncludeBusinessCoverage(includeBuildingCoverage: ButtonToggleOption) {
     this.insuranceSearchForm.controls.includeBuildingCoverage.setValue(
-      includeBuildingCoverage.title.toLowerCase() === "yes"
+      includeBuildingCoverage.title
     );
     this.goToNextStep();
   }
